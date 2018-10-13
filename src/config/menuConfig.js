@@ -13,11 +13,11 @@ export default [
             },
             {
                 title:'弹框',
-                key:'/ui/modals',
+                key:'admin/ui/modals',
             },
             {
                 title:'Loading',
-                key:'/ui/loadings',
+                key:'admin/ui/loadings',
             },
             {
                 title:'通知提醒',
