@@ -1,0 +1,19 @@
+@import "./default.less";
+.container {
+  display: flex;
+  .nav-left {
+    width: 16%;
+    min-width: 180px;
+    height: calc(100vh);
+    background-color: #001529;
+  }
+  .main {
+    flex: 1;
+    height: calc(100vh);
+    background-color: @colorL;
+    .content {
+      font-size: 14px;
+      padding: 20px;
+    }
+  }
+}
