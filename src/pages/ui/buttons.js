@@ -53,7 +53,7 @@ export default class Buttons extends React.Component {
           <Button onClick={this.handleCloseLoading}>{this.state.loadingLabel}</Button>
         </Card>
         <Card title="按钮组">
-           <ButtonGroup className="button-group">
+           <ButtonGroup className="btn-group">
              <Button type="primary">
                <Icon type="left"/>返回
              </Button>
