@@ -4,7 +4,7 @@
  * email: 847679250@qq.com
  */
 import React from 'react'
-import { Card, Button, Spin, Icon, Alert} from 'antd'
+import { Card, Spin, Icon, Alert} from 'antd'
 import './ui.less'
 
 export default class Loadings extends React.Component {

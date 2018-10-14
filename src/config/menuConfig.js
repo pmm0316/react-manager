@@ -21,19 +21,19 @@ export default [
             },
             {
                 title:'通知提醒',
-                key:'/ui/notification',
+                key:'admin/ui/notification',
             },
             {
                 title:'全局Message',
-                key:'/ui/messages',
+                key:'admin/ui/messages',
             },
             {
                 title:'Tab页签',
-                key:'/ui/tabs',
+                key:'admin/ui/tabs',
             },
             {
                 title:'图片画廊',
-                key:'/ui/gallery',
+                key:'admin/ui/gallery',
             },
             {
                 title:'轮播图',
