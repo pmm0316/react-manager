@@ -37,7 +37,7 @@ export default [
             },
             {
                 title:'轮播图',
-                key:'/ui/carousel',
+                key:'admin/ui/carousel',
             }
         ]
     },
