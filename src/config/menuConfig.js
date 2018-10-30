@@ -61,11 +61,11 @@ export default [
         children:[
             {
                 title:'基础表格',
-                key:'/table/basic',
+                key:'admin/table/basic',
             },
             {
                 title:'高级表格',
-                key:'/table/high',
+                key:'admin/table/high',
             }
         ]
     },
