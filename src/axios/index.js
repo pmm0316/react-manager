@@ -22,6 +22,11 @@ export default class Axios {
     })
   }
   static ajax(options) {
+    let loading
+    if (options.data && options.data.isShowLoading !== false) {
+      loading = document.getElementById('ajaxLoading')
+      loading.style.display = 'block'
+    }
     let baseURL = "https://www.easy-mock.com/mock/5bd8467fa85a60169c8ca976/api"
     return new Promise((resolve, reject) => {
       axios({
@@ -36,6 +41,9 @@ export default class Axios {
           let res = response.data
           if (res.code === 0) {
             resolve(res)
+            if (options.data && options.data.isShowLoading !== false) {
+              loading.style.display = 'none'
+            }
           } else {
             Modal.info({
               title: '提示',
