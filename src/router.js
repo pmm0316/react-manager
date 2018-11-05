@@ -22,6 +22,7 @@ import BasicTable from './pages/table/basicTable'
 import HighTable from './pages/table/highTable'
 import Order from './pages/order'
 import Common from "./common"
+import OrderDetail from './pages/order/detail'
 
 export default class IRouter extends React.Component {
   render() {
@@ -52,7 +53,7 @@ export default class IRouter extends React.Component {
           <Route path="/common" render={() => {
             return (
               <Common>
-                <Route path="/common/order/detail/:orderId" component={Login}/>
+                <Route path="/common/order/detail/:orderId" component={OrderDetail}/>
               </Common>
             )
           }}/>
