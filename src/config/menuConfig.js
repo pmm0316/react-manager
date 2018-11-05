@@ -1,7 +1,7 @@
 export default [
     {
         title:'首页',
-        key:'admin/home'
+        key:'/home'
     },
     {
         title:'UI',
@@ -79,7 +79,7 @@ export default [
     },
     {
         title:'订单管理',
-        key:'/order',
+        key:'admin/order',
         btnList:[
             {
                 title:'订单详情',
