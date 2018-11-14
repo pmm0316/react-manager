@@ -39,10 +39,10 @@ export default class Order extends React.Component {
   }
   renderMap = (result) => {
     this.map = new window.BMap.Map('orderDetailMap')
-    this.map.centerAndZoom('北京', 11)
     // 添加地图控件
     this.addMapControl()
     this.drawBikeRoute(result.positionList)
+    this.drawServiceArea(result.area)
 
   }
   addMapControl = () => {
@@ -55,8 +55,10 @@ export default class Order extends React.Component {
     let startPoint = ''
     let endPoint = ''
     if (positionList.length) {
-      let arr = positionList[0]
-      startPoint = new window.BMap.Point(arr.lon, arr.lat)
+      let first = positionList[0]
+      let last = positionList[positionList.length - 1]
+      startPoint = new window.BMap.Point(first.lon, first.lat)
+      endPoint = new window.BMap.Point(last.lon, last.lat)
       let startIcon = new window.BMap.Icon(
         '/assets/start_point.png',
         new window.BMap.Size(36, 42),
@@ -66,8 +68,50 @@ export default class Order extends React.Component {
         }
       )
       let startMarker = new window.BMap.Marker(startPoint, {icon: startIcon})
-      this.map.addOverlay(startMarker)
+      map.addOverlay(startMarker)
+
+      let endIcon = new window.BMap.Icon(
+        '/assets/end_point.png',
+        new window.BMap.Size(36, 42),
+        {
+          imageSize: new window.BMap.Size(36, 42),
+          anchor: new window.BMap.Size(36, 42)
+        }
+      )
+      let endMarker = new window.BMap.Marker(endPoint, {icon: endIcon})
+      map.addOverlay(endMarker)
+
+      //连接路线图
+      let trackPoint = []
+      for (let i = 0; i < positionList.length; i++) {
+        let point = positionList[i]
+        trackPoint.push(new window.BMap.Point(point.lon, point.lat))
+      }
+      let polyline = new window.BMap.Polyline(trackPoint, {
+        strokeColor: '#1869AD',
+        strokeWeight: 4,
+        strokeOpactity: 1
+      })
+      map.addOverlay(polyline)
+
+      map.centerAndZoom(endPoint, 11)
     }
+  }
+  drawServiceArea = (positionList) => {
+    // 绘制服务区
+    let trackPoint = []
+    for (let i = 0; i < positionList.length; i++) {
+      let point = positionList[i]
+      trackPoint.push(new window.BMap.Point(point.lon, point.lat))
+    }
+    let polygon = new window.BMap.Polygon(trackPoint, {
+      strokeColor: '#CE0000',
+      strokeWeight: 4,
+      strokeOpactity: 1,
+      fillColor: '#ff8605',
+      fillOpactity: 0.4
+    })
+    this.map.addOverlay(polygon)
   }
   render() {
     const info = this.state.orderInfo || {}

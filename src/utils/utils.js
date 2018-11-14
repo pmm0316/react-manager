@@ -2,6 +2,9 @@
  * CREATED DATE: 2018/10/6 12:21:45
  * author: Absent Min
  */
+import React from 'react'
+import { Select } from 'antd'
+const Option = Select.Option
 export default {
   formatDate(time) {
     if(!time) return ''
@@ -23,5 +26,16 @@ export default {
       showQuickJumper: true
     }
     return page
+  },
+  getOptionList(data) {
+    console.log(data)
+    if (!data) {
+      return []
+    }
+    let options = []
+    data.forEach(v => {
+      options.push(<Option value={v.id} key={v.id}>{v.name}</Option>)
+    })
+    return options
   }
 }
