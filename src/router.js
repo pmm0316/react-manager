@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-21 09:39:33
+ * @LastEditTime: 2020-11-21 10:20:45
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \react-manager\src\router.js
+ */
 /**
  * CREATED DATE: 2018/10/8 20:17:42
  * author: Absent Min
@@ -23,6 +31,7 @@ import HighTable from './pages/table/highTable'
 import Order from './pages/order'
 import Common from "./common"
 import OrderDetail from './pages/order/detail'
+import ModelConfig from './pages/supos/modelConfig'
 
 export default class IRouter extends React.Component {
   render() {
@@ -30,6 +39,7 @@ export default class IRouter extends React.Component {
       <BrowserRouter>
         <App>
           <Route path="/login" component={Login}/>
+          <Route path="/supos/modelConfig" component={ModelConfig}/>
           <Route path="/admin" render={()=>
             <Admin>
               <Switch>

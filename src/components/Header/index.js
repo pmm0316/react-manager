@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-21 09:39:33
+ * @LastEditTime: 2020-11-21 10:39:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \react-manager\src\components\Header\index.js
+ */
 /**
  * CREATED DATE: 2018/9/30 21:35:48
  * author: Absent Min
@@ -6,7 +14,7 @@ import React from 'react'
 import {Row, Col} from 'antd'
 import './index.less'
 import Util from '../../utils/utils'
-import axios from '../../axios'
+// import axios from '../../axios'
 
 export default class Header extends React.Component {
   componentWillMount() {
@@ -18,23 +26,23 @@ export default class Header extends React.Component {
         sysTime: Util.formatDate(new Date().getTime())
       })
     },1000)
-    this.getWeatherAPIDate()
+    // this.getWeatherAPIDate()
   }
-  getWeatherAPIDate() {
-    let city = '北京'
-    axios.jsonp({
-      url: 'http://api.map.baidu.com/telematics/v3/weather?location='+encodeURIComponent(city)+'&output=json&ak=3p49MVra6urFRGOT9s8UBWr2'
-    }).then((res) => {
-      console.log(res)
-      if (res.status === 'success') {
-        let data = res.results[0].weather_data[0]
-        this.setState({
-          dayPictureUrl: data.dayPictureUrl,
-          weather: data.weather
-        })
-      }
-    })
-  }
+  // getWeatherAPIDate() {
+  //   let city = '北京'
+  //   axios.jsonp({
+  //     url: 'http://api.map.baidu.com/telematics/v3/weather?location='+encodeURIComponent(city)+'&output=json&ak=3p49MVra6urFRGOT9s8UBWr2'
+  //   }).then((res) => {
+  //     console.log(res)
+  //     if (res.status === 'success') {
+  //       let data = res.results[0].weather_data[0]
+  //       this.setState({
+  //         dayPictureUrl: data.dayPictureUrl,
+  //         weather: data.weather
+  //       })
+  //     }
+  //   })
+  // }
   render() {
     const menuType = this.props.menuType
     return (
